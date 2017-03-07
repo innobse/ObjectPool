@@ -19,7 +19,7 @@ public class Pool<E extends Pool.IPoolObject> {
         if (getFreeCount() == 0){
             addToPool();
         }
-        return objects.poll();
+        return objects.take();
     }
 
     public void ret(E object) throws InterruptedException {
