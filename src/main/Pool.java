@@ -23,7 +23,7 @@ public class Pool<E extends Pool.IPoolObject> {
     }
 
     public void ret(E object) throws InterruptedException {
-        if (getFreeCount() < objects.size()){
+        if (getFreeCount() < OPTIMAL_CAPACITY){
             object.toInitState();
             objects.put(object);
         } else count.decrementAndGet();
